@@ -1,0 +1,46 @@
+<main class="main">
+    <button type="button" class="btn btn-primary border" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Adicionar Produto
+    </button>
+    <ul class="list-group list-group-flush">
+      {{#each products}}
+        <li class="list-group-item">
+          <p id="title" class="title w-100">{{this.nome}} <span class="quantidade">Quantidade: {{this.quantidade}}</span></p>
+          <div class="actions">
+            <form action="product/{{this.id}}" method="get">
+              {{!-- <input type="hidden" name="id"> --}}
+              <button type="submit" class="btn btn-info">Editar</button>
+            </form>
+            <form action="product/remove/{{this.id}}">
+              <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+</main>
+
+<!-- Modal Cadastrar -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/product/add" method="post">
+          <div class="mb-2">
+            <label for="nome" class="form-label">Nome Produto:</label>
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Ex..: Café">
+          </div>
+          <div class="mb-2">
+            <label for="quantidade" class="form-label">Quantidade</label>
+            <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Ex..: 8">
+          </div>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

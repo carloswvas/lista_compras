@@ -1,0 +1,14 @@
+<div class="main">
+  <form action="/product/update" method="post">
+    <input type="hidden" name="id" value="{{product.id}}">
+    <div class="mb-2">
+      <label for="nome" class="form-label">Nome Produto:</label>
+      <input type="text" class="form-control" name="nome" value="{{product.nome}}">
+    </div>
+    <div class="mb-2">
+      <label for="quantidade" class="form-label">Quantidade</label>
+      <input type="text" class="form-control" name="quantidade" value="{{product.quantidade}}">
+    </div>
+    <button type="submit" class="btn btn-primary">Atualizar</button>
+  </form>
+</div>
